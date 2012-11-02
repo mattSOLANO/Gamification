@@ -1,0 +1,5 @@
+@charset "UTF-8";
+
+
+.icon-right:before { content: '\2192'; } /* '→' */
+.icon-award:before { content: '🏉'; } /* '\1f3c9' */

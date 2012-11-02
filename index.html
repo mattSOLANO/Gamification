@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<title>Gamiflexxion</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!--[if lte IE 8]><script>(function(){var e="abbr,article,aside,audio,canvas,datalist,details,figure,footer,header,hgroup,mark,menu,meter,nav,output,progress,section,time,video".split(','),i=e.length;while(i--){document.createElement(e[i]);}}());</script><![endif]-->
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="css/fontello.css"><!--[if IE 7]>
+    <link rel="stylesheet" href="css/fontello-ie7.css"><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Creepster|Enriqueta' rel='stylesheet' type='text/css'>
+	
+</head>
+<body>
+	<div class="popup">
+		<p></p>
+		<span class="close">x</span>
+	</div>
+	<div class="levelUp">
+		<p></p>
+		<span class="close">x</span>
+	</div>
+	<div class="wrapper">
+		<header>
+			<h1>Gamiflexxion</h1>
+		</header>
+	
+		<section>
+
+			<p class="hello">
+					Hello Ghouls and Gals! Hidden around the office today and tomorrow are different codes which you can redeem for points and prizes.
+			</p>
+			
+			<div class="mainLeft">
+				<div class="redeemBox">
+					<h3>Redeem</h3>
+					<form data-bind="submit: mySubmit">
+						<input type="email" name="myEmail" data-bind="value: myEmail" placeholder="Your Inflexxion Email" required="required">
+						<input type="text" name="myCode" data-bind="value: myCode" placeholder="Code" required="required"jquery>
+
+						<button type="submit"><i class="icon-right"></i></button>
+					</form>
+				</div>
+
+
+				
+			</div>
+
+			<div class="leaderboard">
+				<h2>Leaderboard</h2>
+
+
+				<div class="userBox"  data-bind="foreach: users">
+					
+					<div class="user">
+						<p class="points" data-bind="text: points"></p>
+						<div class="userRight">
+							<h4><span data-bind="text: name"></span><span class="level">Level <span data-bind="text: level"></span></span></h4>
+							<div class="badgeBox" data-bind="foreach: badges">
+								<p class="new"><i class="icon-award"></i><span class="tip" data-bind="text:$data"></span></p>
+
+							</div>
+
+						</div>
+						<br class="clearFloat"/>
+					</div>
+
+				</div>	
+
+
+			</div>
+
+		</section>
+
+
+	</div>
+
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script type="text/javascript" src="js/knockout-2.1.0.js"></script>
+	<script src="js/jquery.fittext.js"></script>
+	<script type="text/javascript" src="js/respond.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript">
+
+		$(function(){
+
+			$("h1").fitText(0.6);
+	
+
+			if (! ("placeholder" in document.createElement("input"))) {
+		        $('*[placeholder]').each(function() {
+		            $this = $(this);
+		            var placeholder = $(this).attr('placeholder');
+		            if ($(this).val() === '') {
+		                $this.val(placeholder);
+		            }
+		            $this.bind('focus',
+		            function() {
+		                if ($(this).val() === placeholder) {
+		                    this.plchldr = placeholder;
+		                    $(this).val('');
+		                }
+		            });
+		            $this.bind('blur',
+		            function() {
+		                if ($(this).val() === '' && $(this).val() !== this.plchldr) {
+		                    $(this).val(this.plchldr);
+		                }
+		            });
+		        });
+		        $('form').bind('submit',
+		        function() {
+		            $(this).find('*[placeholder]').each(function() {
+		                if ($(this).val() === $(this).attr('placeholder')) {
+		                    $(this).val('');
+		                }
+		            });
+		        });
+    		}
+
+		})
+
+	</script>
+
+</body>
+</html>
